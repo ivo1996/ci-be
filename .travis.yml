@@ -1,0 +1,11 @@
+language: java
+
+if: type = pull_request OR branch = main OR tag IS present
+
+script: mvn package -DskipTests
+
+deploy:
+  - provider: script
+    script: bash docker_push.sh
+    on:
+      branch: main
