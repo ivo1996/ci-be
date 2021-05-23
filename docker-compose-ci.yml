@@ -2,9 +2,7 @@ version: '3'
 services:
   ci:
     container_name: ci
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: test1996/ci-be:latest
     ports:
       - '9000:8888'
     restart: on-failure
