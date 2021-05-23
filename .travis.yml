@@ -6,7 +6,7 @@ if: tag IS present
 script: mvn package -DskipTests
 
 before_deploy:
-  - docker login -u $DOCKER_USERNAME -p $DOCKER_USERNAME
+  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
   - docker build -t ci-be .
   - docker images
   - docker tag ci-be $DOCKER_USERNAME/ci-be
