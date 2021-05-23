@@ -1,6 +1,7 @@
 language: java
 
-if: type = pull_request OR branch = main OR tag IS present
+#if: type = pull_request OR branch = main OR tag IS present
+if: type = tag IS present
 
 script: mvn package -DskipTests
 
@@ -8,6 +9,6 @@ deploy:
   - provider: script
     skip_existing: true
     skip_cleanup: true
-    script: bash docker_push.sh
+    script: bash docker-push.sh
     on:
       tags: true
